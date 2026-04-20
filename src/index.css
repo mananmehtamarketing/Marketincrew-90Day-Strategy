@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-navy: #0B1F3A;
+  --color-gold: #FDB813;
+  --color-cream: #FAF6F0;
+  --color-success: #22C55E;
+  --color-muted: #64748B;
+
+  --shadow-gold: 0 4px 14px 0 rgba(253, 184, 19, 0.39);
+  --shadow-glass: 0 8px 32px rgba(11, 31, 58, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-cream font-sans text-navy antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-bold text-navy;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .btn-primary {
+    @apply bg-navy text-white rounded-full px-8 py-3 transition-all duration-300 transform hover:scale-102 hover:shadow-gold focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-navy text-navy rounded-full px-8 py-3 transition-all duration-300 transform hover:bg-navy/5 focus:outline-none focus:ring-2 focus:ring-navy/20 disabled:opacity-50;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 focus:border-gold focus:ring-4 focus:ring-gold/10 outline-none transition-all;
+  }
+
+  .chip {
+    @apply rounded-full border border-slate-200 px-6 py-2 transition-all cursor-pointer select-none text-sm font-medium;
+  }
+
+  .chip-selected {
+    @apply bg-navy text-white border-navy;
+  }
+}
